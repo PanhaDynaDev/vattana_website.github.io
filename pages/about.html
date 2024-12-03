@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Electronic Products</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <!-- Header with Navigation and Search Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">SETEC Shop</a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="../index.html">Homepage</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search products..." id="search-input">
+            </div>
+        </nav>
+    </header>
+    <!-- Jumbotron -->
+    <section class="jumbotron">
+        <h1>Welcome to SETEC Shop</h1>
+        <p>Your one-stop destination for the latest electronics and gadgets.</p>
+        <a href="shop.html" class="btn-explore">Explore Now</a>
+    </section>
+    
+    <!-- About Us Section -->
+    <main>
+        <section class="about-header">
+            <h1>About Us</h1>
+            <p>Your one-stop shop for cutting-edge electronic devices since 2010.</p>
+        </section>
+
+        <section class="about-content">
+            <div class="about-text">
+                <h2>Welcome to <span>Electronic Products</span></h2>
+                <p>
+                    Since 2010, we've been dedicated to offering high-quality electronics and accessories. From laptops and smartphones to smart home gadgets, we make sure our customers have access to the latest tech at unbeatable prices.
+                </p>
+            </div>
+
+            <div class="about-box">
+                <h2>Our Mission</h2>
+                <p>
+                    Our mission is to enhance your digital experience with top-tier technology, providing reliable, innovative, and affordable products. We believe technology should be accessible to everyone.
+                </p>
+            </div>
+
+            <div class="about-box">
+                <h2>Why Choose Us?</h2>
+                <ul>
+                    <li>High-quality products from trusted brands.</li>
+                    <li>Affordable prices with exciting offers.</li>
+                    <li>Expert and friendly customer support.</li>
+                    <li>Easy returns and secure shopping experience.</li>
+                </ul>
+            </div>
+
+            <div class="about-box">
+                <h2>Our Vision</h2>
+                <p>
+                    We envision a world where technology seamlessly integrates into everyday life. Our goal is to continuously expand our product selection and services to meet the ever-evolving needs of our customers.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <div class="footer-logo">
+                    <a href="#">SETEC Shop</a>
+                </div>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">Facebook</a>
+                    <a href="#" class="social-icon">Instagram</a>
+                    <a href="#" class="social-icon">Twitter</a>
+                    <a href="#" class="social-icon">LinkedIn</a>
+                </div>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>Subscribe to Our Newsletter</h4>
+                <form action="#">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 SETEC SHOP. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Carousel and Pagination -->
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-image');
+        const totalSlides = slides.length;
+
+        const updateCarousel = () => {
+            const slideWidth = slides[0].clientWidth;
+            document.getElementById('carousel-slide').style.transform = `translateX(${-slideWidth * currentSlide}px)`;
+        };
+
+        document.getElementById('next-slide').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        });
+
+        document.getElementById('prev-slide').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+
+        updateCarousel();
+
+        
+    </script>
+</body>
+</html>

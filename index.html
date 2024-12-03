@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SETEC Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header with Navigation and Search Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">SETEC Shop</a>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="#">Homepage</a></li>
+                    <li><a href="pages/about.html">About Us</a></li>
+                    <li><a href="pages/contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search products..." id="search-input">
+            </div>
+        </nav>
+    </header>
+
+    
+
+    <!-- Carousel -->
+    <section class="carousel">
+        <div class="carousel-container" id="carousel-slide">
+            <img src="images/homepagelaptop.webp" alt="Laptop" class="carousel-image">
+            <img src="images/homepagesmartphone.webp" alt="Smartphone" class="carousel-image">
+            <img src="images/homepageheadphone.webp" alt="Headphones" class="carousel-image">
+        </div>
+        <button class="carousel-btn prev-btn" id="prev-slide">&lt;</button>
+        <button class="carousel-btn next-btn" id="next-slide">&gt;</button>
+    </section>
+    <!-- Jumbotron -->
+    <section class="jumbotron">
+        <h1>Welcome to SETEC Shop</h1>
+        <p>Your one-stop destination for the latest electronics and gadgets.</p>
+        <a href="pages/shop.html" class="btn-explore">Explore Now</a>
+    </section>
+    
+    <!-- Category Section with Pagination -->
+    <main>
+        <section class="category-section">
+            <h2>Electronic Product Categories</h2>
+            <div class="category-cards">
+                <a href="pages/laptop.html" class="category-card">
+                    <img src="images/homepagelaptop.webp" alt="Laptops">
+                    <h3>Laptops</h3>
+                    <p>Explore the latest laptops from top brands with powerful features.</p>
+                </a>
+                <a href="pages/smartphones.html" class="category-card">
+                    <img src="images/homepagesmartphone.webp" alt="Smartphones">
+                    <h3>Smartphones</h3>
+                    <p>Find the best smartphones with advanced technology and sleek designs.</p>
+                </a>
+                <a href="pages/headphones.html" class="category-card">
+                    <img src="images/homepageheadphone.webp" alt="Headphones">
+                    <h3>Headphones</h3>
+                    <p>Discover high-quality sound with our range of headphones and earbuds.</p>
+                </a>
+                <a href="pages/tablets.html" class="category-card">
+                    <img src="images/homepagetablet.avif" alt="Tablets">
+                    <h3>Tablets</h3>
+                    <p>Browse the latest tablets with sleek designs and powerful features.</p>
+                </a>
+                <a href="pages/smartwatches.html" class="category-card">
+                    <img src="images/homepagesmartwatch.webp" alt="Smartwatches">
+                    <h3>Smartwatches</h3>
+                    <p>Stay connected and track your fitness with our range of smartwatches.</p>
+                </a>
+                <a href="pages/gaming.html" class="category-card">
+                    <img src="images/homepagegaming_console.png" alt="Gaming Consoles">
+                    <h3>Gaming Consoles</h3>
+                    <p>Explore the latest gaming consoles for immersive entertainment experiences.</p>
+                </a>
+            </div>
+
+            <!-- Pagination Controls -->
+            <section class="pagination">
+                <button class="page-btn" id="prev-btn">&laquo; Prev</button>
+                <span id="page-number">Page 1</span>
+                <button class="page-btn" id="next-btn">Next &raquo;</button>
+            </section>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-links">
+            <div class="footer-logo">
+                <a href="#">SETEC Shop</a>
+            </div>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="pages/contact.html">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-social">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Instagram</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">LinkedIn</a>
+            </div>
+        </div>
+
+        <div class="footer-newsletter">
+            <h4>Subscribe to Our Newsletter</h4>
+            <form action="#">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2024 SETEC SHOP. All rights reserved.</p>
+    </div>
+</footer>
+
+    <!-- JavaScript for Carousel and Pagination -->
+    <script>
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-image');
+        const totalSlides = slides.length;
+
+        const updateCarousel = () => {
+            const slideWidth = slides[0].clientWidth;
+            document.getElementById('carousel-slide').style.transform = `translateX(${-slideWidth * currentSlide}px)`;
+        };
+
+        document.getElementById('next-slide').addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        });
+
+        document.getElementById('prev-slide').addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+
+        updateCarousel();
+
+        // Pagination functionality
+        let currentPage = 1;
+        const cardsPerPage = 3; // Cards to show per page
+        const categoryCards = document.querySelectorAll('.category-card');
+        const totalPages = Math.ceil(categoryCards.length / cardsPerPage);
+
+        const updatePage = () => {
+            const startIndex = (currentPage - 1) * cardsPerPage;
+            const endIndex = startIndex + cardsPerPage;
+
+            categoryCards.forEach((card, index) => {
+                card.style.display = index >= startIndex && index < endIndex ? 'block' : 'none';
+            });
+
+            document.getElementById('page-number').textContent = `Page ${currentPage}`;
+        };
+
+        document.getElementById('next-btn').addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updatePage();
+            }
+        });
+
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                updatePage();
+            }
+        });
+
+        // Initialize the page
+        updatePage();
+    </script>
+</body>
+
+</html>
